@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import { TodoContextProvider } from './context/TodoContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <TodoContextProvider>
     <App />
-  </React.StrictMode>,
+    </TodoContextProvider>
+   </React.StrictMode>,
   document.getElementById('root')
 );
 
