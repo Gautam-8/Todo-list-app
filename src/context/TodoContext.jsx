@@ -20,7 +20,7 @@ export const TodoContextProvider = ({ children }) => {
     let found = false;
 
     list.forEach((e) => {
-      if (e.task === task.task) {
+      if (e.task === task.task.toUpperCase()) {
         found = true;
       }
     });
@@ -30,6 +30,8 @@ export const TodoContextProvider = ({ children }) => {
     } else {
       const id = nanoid(7);
       task.id = id;
+      task.status = false;
+      task.task = task.task.toUpperCase();
       let mylist = [...list, task];
       setList(mylist);
       handleBoth(mylist);
