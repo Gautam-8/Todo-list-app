@@ -1,6 +1,6 @@
 ## TODO APP
 
-**Demo Link** :- [Song Studio](https://todo-list-app-gautam-8.vercel.app)
+**Demo Link** :- [TODO LIST](https://todo-list-app-gautam-8.vercel.app)
 
 ## Screenshots
 
