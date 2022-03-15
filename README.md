@@ -1,9 +1,13 @@
-# Getting Started with Create React App
+## TODO APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Demo Link** :- [Song Studio](https://todo-list-app-gautam-8.vercel.app)
 
-## Available Scripts
+## Screenshots
 
-In the project directory, you can run:
+### HomePage
 
-### `npm start`
+![TODO WEB PAGE](https://user-images.githubusercontent.com/91519436/158357979-b7c7c9fe-b088-4732-987e-028023a9b2bb.png)
+
+## Tech Stack
+
+React
