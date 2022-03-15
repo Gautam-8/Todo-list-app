@@ -99,49 +99,72 @@ export const Todos = () => {
   };
 
   return (
-    <div>
-      <Input
-        placeholder="Enter todo"
-        style={{ width: "25%", marginTop: "30px" }}
-        onChange={handleChange}
-      />
+    <div style={{ display: "flex", width: "100%" }}>
+      <div style={{ width: "30%" }}>
+        <h1 style={{ marginTop: "40px" }}>TODOS</h1>
+        <Input
+          placeholder="Enter todo"
+          style={{ width: "70%", marginTop: "30px", marginBottom: "10px" }}
+          onChange={handleChange}
+        />
+        <br />
+        <DatePicker
+          style={{ width: "34%", marginRight: "2%" }}
+          onChange={handleDate}
+          disabledDate={(current) => {
+            return current && current < moment().subtract(1, "days");
+          }}
+        />
+        <TimePicker
+          format={format}
+          onChange={handleTime}
+          style={{ width: "34%" }}
+        />{" "}
+        <br />
+        <Button
+          style={{ marginTop: "20px" }}
+          type="primary"
+          onClick={() => handleValid(todo)}
+        >
+          Add todo
+        </Button>
+      </div>
 
-      <DatePicker
-        onChange={handleDate}
-        disabledDate={(current) => {
-          return current && current < moment().subtract(1, "days");
-        }}
-      />
+      <div style={{ width: "60%" }}>
+        <Table
+          size="small"
+          pagination={{ pageSize: "5" }}
+          dataSource={uncompleted}
+          columns={handleHead(uncompleted)}
+          style={{
+            width: "90%",
+            margin: "auto",
+            marginTop: "30px",
+          }}
+        />
 
-      <TimePicker format={format} onChange={handleTime} />
+        <div
+          style={{ display: "flex", margin: "auto", justifyContent: "center" }}
+        >
+          <h1>COMPLETED</h1>
 
-      <Button type="primary" onClick={() => handleValid(todo)}>
-        Add todo
-      </Button>
+          <Button
+            type="primary"
+            onClick={handleClear}
+            style={{ margin: "1%", marginLeft: "10%" }}
+          >
+            Clear Completed
+          </Button>
+        </div>
 
-      <h1>TODOS</h1>
-      <Table
-        dataSource={uncompleted}
-        columns={handleHead(uncompleted)}
-        style={{
-          width: "60%",
-          margin: "auto",
-          marginTop: "30px",
-          textAlign: "center",
-        }}
-      />
-
-      <h1>COMPLETED</h1>
-
-      <Button type="primary" onClick={handleClear}>
-        Clear Completed
-      </Button>
-
-      <Table
-        dataSource={completed}
-        columns={handleHead(completed)}
-        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
-      />
+        <Table
+          size="small"
+          pagination={{ pageSize: "4" }}
+          dataSource={completed}
+          columns={handleHead(completed)}
+          style={{ width: "90%", margin: "auto", marginTop: "30px" }}
+        />
+      </div>
     </div>
   );
 };
